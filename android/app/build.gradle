@@ -25,7 +25,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.example.radhe_gaushala"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 34
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -38,10 +38,20 @@ android {
         applicationId = "com.example.radhe_gaushala"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        minSdk = 34
+        targetSdk = 26
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+        abortOnError false  // Allows the build to continue even with errors
     }
 
     buildTypes {

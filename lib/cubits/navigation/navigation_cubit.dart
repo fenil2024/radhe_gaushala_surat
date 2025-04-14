@@ -15,7 +15,7 @@ class NavigationCubit extends Cubit<NavigationState> {
       pages.add(targetPage);
       print("Pages : $pages");
       emit(state.copyWith(currentPage: targetPage, pages: pages));
-    } catch (e, s) {}
+    } catch (e) {}
   }
 
   void pushAndRemoveUntil(Routes page, {Routes? rootRoute}) async {
